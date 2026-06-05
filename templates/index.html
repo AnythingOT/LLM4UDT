@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM UDT Generator</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <span class="header-logo-text"><span class="logo-anything">Anything</span><span class="logo-ot">OT</span></span>
+            <h1>LLM UDT Generator</h1>
+        </div>
+        <div class="header-right">
+            <button id="toggleTheme" title="Toggle Dark/Light Mode">🌓</button>
+            <button id="settingsButton" title="Settings">⚙️</button>
+        </div>
+    </div>
+
+    <!-- No-model warning banner — shown when Ollama has no model selected -->
+    <div id="modelWarningBanner" class="model-warning-banner" style="display:none;">
+        ⚠️ No Ollama model selected. Open <strong>Settings (⚙️)</strong> to choose a model before generating.
+    </div>
+
+    <main id="container">
+        <div id="chatWindow"></div>
+
+        <div id="inputWrapper">
+            <div class="input-row">
+                <div class="input-with-buttons">
+                    <button id="attachButton" title="Attach L5X file">Attach</button>
+                    <textarea id="inputBox" placeholder="Describe your UDT... e.g. Create a UDT named MotorStatus with: run_status, BOOL, Motor running; speed, REAL, Speed setpoint"></textarea>
+                    <button id="enterButton" title="Send message" disabled>Enter</button>
+                </div>
+            </div>
+            <input type="file" id="fileInput" accept=".l5x,.csv,.xlsx,.xlsm" style="display: none;"/>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Settings</h2>
+
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Ollama Model</h3>
+                    <p class="modal-description">Select the model used for UDT generation. Click Refresh to detect available models.</p>
+                    <div class="modal-input-group">
+                        <select id="modelSelect" class="modal-select">
+                            <option value="">— loading models —</option>
+                        </select>
+                        <button id="refreshModelsButton" class="modal-button">Refresh</button>
+                    </div>
+                    <p id="modelStatus" class="modal-status-message"></p>
+                    <div class="save-model-row">
+                        <button id="saveModelButton" class="modal-button primary-button">Save Model</button>
+                    </div>
+                </div>
+
+                <div class="settings-author-row">
+                    <span class="author-credit">Author: <em>AnythingOT</em></span>
+                </div>
+            </div>
+        </div>
+        <!-- Detail modal (click-to-expand analysis) -->
+        <div id="detailModal" class="modal">
+            <div class="modal-content modal-content-wide">
+                <span class="close-button" id="detailModalClose">&times;</span>
+                <div id="detailModalBody"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>@2026 LLM_UDT GEN</footer>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

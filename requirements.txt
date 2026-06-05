@@ -1,0 +1,6 @@
+flask>=3.0
+waitress>=3.0
+werkzeug>=3.0
+openai>=1.0
+requests>=2.31
+openpyxl>=3.1
