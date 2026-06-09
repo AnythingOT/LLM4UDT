@@ -1,6 +1,6 @@
 # LLM4UDT
 
-A local web app that generates and optimizes Rockwell ControlLogix **User-Defined Data Types** (UDTs) for export to Studio 5000 as `.L5X` files.
+A local AI powered web app that generates and optimizes Rockwell ControlLogix **User-Defined Data Types** (UDTs) for export to Studio 5000 as `.L5X` files.
 
 Three input modes:
 
@@ -13,9 +13,7 @@ Three input modes:
 
 ## Why this exists
 
-Rockwell ControlLogix lays UDT members out in declaration order with natural alignment. Authoring a UDT carelessly — a BOOL between two DINTs, scalar BOOLs scattered through the struct, REALs interleaved with INTs — adds padding bytes that compound across every instance. For a UDT instantiated thousands of times (motor objects, valve objects, recipe slots), wasted bytes per instance × instance count is real controller memory.
-
-This tool reorders members into a deterministic, padding-aware layout and packs scattered scalar BOOLs into SINT bit-fields, matching what Studio 5000 does internally. Nested UDTs and AOIs are handled; CDATA in descriptions and AOI defaults is preserved verbatim (the usual ElementTree gotcha that breaks Studio 5000 imports).
+> This is just a experimental extension of [L5X UDT Optimizer](https://github.com/AnythingOT/L5X_UDT-Optimizer). It leverages a local LLM to generate Rockwell Studio 5000 UDTs directly from NLP. This repo has achieved its intended purposes. 
 
 ---
 
