@@ -1,5 +1,7 @@
 # LLM4UDT
 
+> **Archived.** This tool has been integrated into **[LLM4L5X](https://github.com/AnythingOT/LLM4L5X)**: switch its input to **UDT** to create UDTs from plain English (local model), a UDT text form or an Excel sheet, and attach an L5X to optimize existing UDTs. The code lives in its `udt/` folder. New work happens there; this repo is kept read-only for reference.
+
 A local AI powered web app that generates and optimizes Rockwell ControlLogix **User-Defined Data Types** (UDTs) for export to Studio 5000 as `.L5X` files.
 
 Three input modes:
